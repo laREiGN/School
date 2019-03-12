@@ -24,6 +24,11 @@ def main():
     elif function == 'help':
         f.print_functions()
         main()
+    else:
+        process_line()
+
+def process_line():
+    
 
 
     # Implement basic functionality
