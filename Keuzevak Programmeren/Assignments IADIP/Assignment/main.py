@@ -1,11 +1,9 @@
-#!/usr/bin/python
-
 import sys
 import types
 import functions as f
 
 current_version = 'calculator version 0.1'
-function = None
+function = input()
 
 '''
 The entry-point of our application.
@@ -14,8 +12,6 @@ The entry-point of our application.
 def main():
     global current_version
     global function
-    function = ''
-    function = input()
     # Indicates whether or not our application should quit
     quit = False
     if function == 'quit':
