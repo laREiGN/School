@@ -189,3 +189,56 @@ class Turtle{
     ####    Unit 0, BA9:    ####
     ############################
 
+class Point{
+	public double x;
+	public double y;
+
+	public Point(double x, double y){
+		this.x = x;
+		this.y = y;
+	}
+}
+
+class Line{
+	public Point[,] points = new Point(2,2);
+
+	public Lines(Point x, Point y){
+		self.points[0, 0] = x.x;
+		self.points[0, 1] = x.y;
+		self.points[1, 0] = y.x;
+		self.points[1, 1] = y.y;
+	}
+	public double Distance(){
+		x1 = self.points[1, 0] - self.points[0, 0];
+		y1 = self.points[1, 1] - self.points[0, 1];
+		x1squared = x1 * x1;
+		y1squared = y1 * y1;
+		squared = x1squared + y1squared;
+		distance = Math.Sqrt(squared);
+		return distance;
+	}
+
+}
+
+class Canvas{
+	public Line[] lines; 
+	public int numLines;
+
+	public Canvas(int linesamt){
+		this.lines = new Line[linesamt];
+		this.numLines = 0;
+	}
+	public AddLine(Line line){
+		this.lines[this.numLines] = line;
+		this.numLines = this.numLines + 1;
+	}
+	public Undo(){
+		if(this.numLines > 0){
+			this.numLines = this.numLines - 1;
+			this.lines[this.numLines] = null;
+		}
+		else{}
+	}
+
+}
+
