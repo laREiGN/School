@@ -106,12 +106,12 @@ class Player{
 	public int damage;
 
 	public Player(string name, int damage){
-		self.name = name;
-		self.damage = damage;
-		self.healthPoints = 100;
+		this.name = name;
+		this.damage = damage;
+		this.healthPoints = 100;
 	}
 	public TakeDamage(int damage){
-		self.healthPoints = self.healthPoints - damage;
+		this.healthPoints = this.healthPoints - damage;
 	}
 }
 
@@ -125,18 +125,18 @@ class Car{
 	public int speed;
 
 	public Car(string make, string model){
-		self.make = make;
-		self.model = model;
-		self.speed = 0;
+		this.make = make;
+		this.model = model;
+		this.speed = 0;
 	}
-	public SpeedUp(int x){
-		self.speed = self.speed + x;
+	public void SpeedUp(int x){
+		this.speed = this.speed + x;
 	}
-	public SlowDown(int x){
-		self.speed = self.speed - x;
+	public void SlowDown(int x){
+		this.speed = this.speed - x;
 	}
 	public bool IsSpeeding(int limit){
-		if (self.speed > limit){
+		if (this.speed > limit){
 			return true;
 		}
 		else {
@@ -155,8 +155,8 @@ class Position{
 	public int y;
 	
 	public Position(int x, int y){
-		self.x = x;
-		self.y = y;
+		this.x = x;
+		this.y = y;
 	}
 }
 
@@ -165,23 +165,23 @@ class Turtle{
 	public bool penOn;
 
 	public Turtle(){
-		self.penOn = false;
-		self.position = new Position(0,0)
+		this.penOn = false;
+		this.position = new Position(0,0);
 	}
-	public Pen(bool x){
-		self.penOn = x
+	public void Pen(bool x){
+		this.penOn = x;
 	}
-	public Right(int x){
-		self.position.x = self.position.x + x
+	public void Right(int x){
+		this.position.x = this.position.x + x;
 	}
-	public Left(int x){
-		self.position.x = self.position.x - x
+	public void Left(int x){
+		this.position.x = this.position.x - x;
 	}
-	public Up(int x){
-		self.position.y = self.position.y - y
+	public void Up(int x){
+		this.position.y = this.position.y + x;
 	}
-	public Down(int x){
-		self.position.y = self.position.y - y
+	public void Down(int x){
+		this.position.y = this.position.y - x;
 	}
 }
 
