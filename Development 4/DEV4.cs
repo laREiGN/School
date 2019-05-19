@@ -200,22 +200,20 @@ class Point{
 }
 
 class Line{
-	public Point[,] points = new Point(2,2);
+	public Point[] points = new Point[2];
 
-	public Lines(Point x, Point y){
-		this.points[0, 0] = x.x;
-		this.points[0, 1] = x.y;
-		this.points[1, 0] = y.x;
-		this.points[1, 1] = y.y;
+	public Line(Point x, Point y){
+		this.points[0] = x;
+		this.points[1] = y;
 	}
 	public double Distance(){
-		x1 = this.points[1, 0] - this.points[0, 0];
-		y1 = this.points[1, 1] - this.points[0, 1];
-		x1squared = x1 * x1;
-		y1squared = y1 * y1;
-		squared = x1squared + y1squared;
-		distance = Math.Sqrt(squared);
-		return distance;
+		double x1 = this.points[1].x - this.points[0].x;
+		double y1 = this.points[1].y - this.points[0].y;
+		double x1squared = x1 * x1;
+		double y1squared = y1 * y1;
+		double squared = x1squared + y1squared;
+		double length = Math.Sqrt(squared);
+		return length;
 	}
 
 }
@@ -228,11 +226,13 @@ class Canvas{
 		this.lines = new Line[linesamt];
 		this.numLines = 0;
 	}
-	public AddLine(Line line){
-		this.lines[this.numLines] = line;
-		this.numLines = this.numLines + 1;
+	public void AddLine(Line line){
+        if(this.lines.Length < this.numLines){
+			this.lines[this.numLines] = line;
+			this.numLines = this.numLines + 1;
+        }
 	}
-	public Undo(){
+	public void Undo(){
 		if(this.numLines > 0){
 			this.numLines = this.numLines - 1;
 			this.lines[this.numLines] = null;
